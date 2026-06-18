@@ -1,0 +1,21 @@
+{
+  "tool": "comfy.boogu",
+  "version": "0.1.0",
+  "engineCompat": ">=0.1.0",
+  "credentials": [],
+  "displayName": "Comfy Boogu (reference edit)",
+  "description": "Boogu image-edit runner: prompt + up to 4 references into TextEncodeBooguEdit, empty-latent denoise. Resolves shot_image_prompt references[] like comfy.klein.",
+  "entry": "dist/index.js",
+  "permissions": {
+    "network": [
+      "<comfy-endpoint-host>"
+    ],
+    "filesystem": "project",
+    "subprocess": false,
+    "env": [
+      "COMFY_MODE",
+      "COMFYUI_BASE_URL",
+      "ENDPOINT_self_local"
+    ]
+  }
+}
