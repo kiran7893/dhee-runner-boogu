@@ -44,5 +44,8 @@
     "type": "git",
     "url": "git+https://github.com/dheeai/dhee-runner-boogu.git"
   },
-  "homepage": "https://github.com/dheeai/dhee-runner-boogu#readme"
+  "homepage": "https://github.com/dheeai/dhee-runner-boogu#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
