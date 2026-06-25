@@ -1,23 +1,39 @@
 name: Release
 
+# Publish @dhee_ai packages via npm OIDC Trusted Publishing (no NPM_TOKEN).
+#
+# One-time per package on npmjs.com → Access → Trusted Publisher → GitHub Actions:
+#   Organization: dheeai
+#   Repository:   <this-repo-name>   (e.g. dhee-bundle-upsc-explainer)
+#   Workflow:     release.yml
+#   Environment:  (leave blank)
+#
+# Release: bump version in package.json, then:
+#   git tag v0.1.2 && git push origin v0.1.2
 on:
   push:
     tags: ['v*']
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org
-      - run: npm install
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Upgrade npm (OIDC trusted publishing requires >= 11.5.1)
+        run: npm install -g npm@latest
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Publish to npm
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
