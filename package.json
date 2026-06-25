@@ -1,5 +1,5 @@
 {
-  "name": "dhee-runner-boogu",
+  "name": "@dhee_ai/runner-boogu",
   "version": "0.1.0",
   "description": "Boogu image-edit runner for Dhee (comfy.boogu): prompt + up to 4 reference images into a ComfyUI Boogu edit workflow on a local GPU.",
   "type": "module",
@@ -44,5 +44,6 @@
     "type": "git",
     "url": "git+https://github.com/dheeai/dhee-runner-boogu.git"
   },
-  "homepage": "https://github.com/dheeai/dhee-runner-boogu#readme"
+  "homepage": "https://github.com/dheeai/dhee-runner-boogu#readme",
+  "publishConfig": { "access": "public" }
 }

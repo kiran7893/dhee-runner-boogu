@@ -13,9 +13,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Typecheck
-        run: npm run typecheck
+      - run: npm install
+      - run: npm run build
+      - run: npm run typecheck
